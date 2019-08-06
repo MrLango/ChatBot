@@ -1,5 +1,7 @@
 package com.JSB2G3.ChatBot;
 
+import com.JSB2G3.utils.TypeValues;
+
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,14 +31,10 @@ public class Greetings {
                 customerDetails.add(customerName);
 
             } else {
-                System.out.println("Enter a valid name");
+                handleInvalidEntry(TypeValues.VALID_NAME_CHECK);
 
             }
         }while(!nameValidationFlag);
-
-
-
-
 
         System.out.println(customerDetails.get(0)+","+" Enter your email ID");
         do {
@@ -57,6 +55,9 @@ public class Greetings {
 
     }
 
+    public void handleInvalidEntry(String message) {
+        System.out.println("Enter valid " + message);
+    }
 
     public static boolean isValidEmail(String email)
     {
